@@ -1,3 +1,5 @@
+<!-- Designed by ZGQ Inc. domain.zgqinc.gq -->
+
 <!DOCTYPE html>
 <html lang="zh-TW">
 
@@ -51,6 +53,21 @@
 			--md-shape-corner-extra-large: 32px;
 			--md-elevation-1: 0 1px 3px 1px rgba(0, 0, 0, 0.1);
 			--md-elevation-3: 0 4px 8px 3px rgba(0, 0, 0, 0.1);
+			--md-elevation-5: 0 8px 12px 6px rgba(0, 0, 0, 0.15);
+			--brand-qq: #0099FF;
+			--brand-wechat: #07C160;
+			--brand-x: #000000;
+			--brand-telegram: #24A1DE;
+			--brand-bluesky: #0560FF;
+			--brand-tiktok: #000000;
+			--brand-youtube: #FF0000;
+			--brand-threads: #000000;
+			--brand-instagram: #C13584;
+			--brand-facebook: #1877F2;
+			--brand-kuaishou: #FF7F24;
+			--brand-xiaohongshu: #FF2442;
+			--brand-douyin: #1C1C1C;
+			--brand-bilibili: #FB7299;
 		}
 
 		@media (prefers-color-scheme: dark) {
@@ -75,6 +92,21 @@
 				--md-text-sub: #C1C9BE;
 				--md-elevation-1: 0 1px 3px 1px rgba(0, 0, 0, 0.3);
 				--md-elevation-3: 0 4px 8px 3px rgba(0, 0, 0, 0.3);
+				--md-elevation-5: 0 8px 12px 6px rgba(0, 0, 0, 0.5);
+				--brand-qq: #80D6FF;
+				--brand-wechat: #8CD699;
+				--brand-x: #E1E3DF;
+				--brand-telegram: #7ED1F8;
+				--brand-bluesky: #8AB4F8;
+				--brand-tiktok: #FF4D79;
+				--brand-youtube: #FF8F8F;
+				--brand-threads: #E1E3DF;
+				--brand-instagram: #E88EBA;
+				--brand-facebook: #8AB4F8;
+				--brand-kuaishou: #FFB380;
+				--brand-xiaohongshu: #FF8A9D;
+				--brand-douyin: #E1E3DF;
+				--brand-bilibili: #FCC4D9;
 			}
 		}
 
@@ -262,7 +294,7 @@
 			display: flex;
 			align-items: center;
 			gap: 16px;
-			transition: all 0.2s;
+			transition: all 0.2s cubic-bezier(0.2, 0, 0, 1);
 			position: relative;
 			cursor: pointer;
 			text-decoration: none;
@@ -273,15 +305,74 @@
 			background-color: var(--md-sys-color-surface-container-high);
 			border-color: var(--md-sys-color-outline-variant);
 			transform: translateY(-2px);
+			box-shadow: var(--md-elevation-1);
 		}
 
 		.si {
 			font-size: 24px;
 			width: 24px;
 			height: 24px;
-			color: var(--md-sys-color-primary);
 			flex-shrink: 0;
+			color: var(--md-sys-color-primary);
+			transition: color 0.3s;
 		}
+
+		.brand-qq .si {
+			color: var(--brand-qq);
+		}
+
+		.brand-wechat .si {
+			color: var(--brand-wechat);
+		}
+
+		.brand-x .si {
+			color: var(--brand-x);
+		}
+
+		.brand-telegram .si {
+			color: var(--brand-telegram);
+		}
+
+		.brand-bluesky .si {
+			color: var(--brand-bluesky);
+		}
+
+		.brand-tiktok .si {
+			color: var(--brand-tiktok);
+		}
+
+		.brand-youtube .si {
+			color: var(--brand-youtube);
+		}
+
+		.brand-threads .si {
+			color: var(--brand-threads);
+		}
+
+		.brand-instagram .si {
+			color: var(--brand-instagram);
+		}
+
+		.brand-facebook .si {
+			color: var(--brand-facebook);
+		}
+
+		.brand-kuaishou .si {
+			color: var(--brand-kuaishou);
+		}
+
+		.brand-xiaohongshu .si {
+			color: var(--brand-xiaohongshu);
+		}
+
+		.brand-douyin .si {
+			color: var(--brand-douyin);
+		}
+
+		.brand-bilibili .si {
+			color: var(--brand-bilibili);
+		}
+
 
 		.social-info {
 			display: flex;
@@ -312,36 +403,51 @@
 		.qr-popup {
 			display: none;
 			position: absolute;
-			bottom: 110%;
+			bottom: 120%;
 			left: 50%;
-			transform: translateX(-50%);
-			background: white;
-			padding: 10px;
-			border-radius: 12px;
-			box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-			width: 180px;
+			transform: translateX(-50%) translateY(10px);
+			opacity: 0;
+			background: var(--md-sys-color-surface-container-high);
+			padding: 16px;
+			border-radius: 16px;
+			box-shadow: var(--md-elevation-5);
+			width: 200px;
 			z-index: 100;
 			text-align: center;
+			border: 1px solid var(--md-sys-color-outline-variant);
+			transition: opacity 0.3s ease, transform 0.3s ease;
 		}
 
 		.qr-popup img {
 			width: 100%;
-			border-radius: 8px;
+			border-radius: 12px;
+			display: block;
 		}
 
 		.qr-text {
-			color: #333;
-			font-size: 12px;
-			margin-top: 5px;
+			color: var(--md-text-main);
+			font-size: 13px;
+			margin-top: 8px;
 			display: block;
+			font-weight: 500;
 		}
 
-		.wechat-wrapper:hover .qr-popup {
-			display: block;
-		}
-
+		.wechat-wrapper:hover .qr-popup,
 		.wechat-wrapper.active .qr-popup {
 			display: block;
+			opacity: 1;
+			transform: translateX(-50%) translateY(0);
+		}
+
+		.qr-popup::after {
+			content: "";
+			position: absolute;
+			top: 100%;
+			left: 50%;
+			margin-left: -8px;
+			border-width: 8px;
+			border-style: solid;
+			border-color: var(--md-sys-color-surface-container-high) transparent transparent transparent;
 		}
 
 		footer {
@@ -436,7 +542,7 @@
 
 		<div id="contact" class="social-grid">
 
-			<a href="https://qm.qq.com/q/Z6Ht60MLCg" target="_blank" class="social-card">
+			<a href="https://qm.qq.com/q/Z6Ht60MLCg" target="_blank" class="social-card brand-qq">
 				<i class="si si-qq"></i>
 				<div class="social-info">
 					<span class="platform-name">QQ</span>
@@ -444,7 +550,7 @@
 				</div>
 			</a>
 
-			<div class="social-card wechat-wrapper" id="wechatBtn">
+			<div class="social-card wechat-wrapper brand-wechat" id="wechatBtn">
 				<div class="qr-popup">
 					<img src="img/wechat.png" alt="WeChat QR">
 					<span class="qr-text" data-i18n="scan">扫码添加</span>
@@ -456,7 +562,7 @@
 				</div>
 			</div>
 
-			<a href="https://x.com/fish1072297057" target="_blank" class="social-card">
+			<a href="https://x.com/fish1072297057" target="_blank" class="social-card brand-x">
 				<i class="si si-x"></i>
 				<div class="social-info">
 					<span class="platform-name">X (Twitter)</span>
@@ -464,7 +570,7 @@
 				</div>
 			</a>
 
-			<a href="https://t.me/flyingfishfurry" target="_blank" class="social-card">
+			<a href="https://t.me/flyingfishfurry" target="_blank" class="social-card brand-telegram">
 				<i class="si si-telegram"></i>
 				<div class="social-info">
 					<span class="platform-name">Telegram</span>
@@ -472,7 +578,8 @@
 				</div>
 			</a>
 
-			<a href="https://bsky.app/profile/flyingfish1234.bsky.social" target="_blank" class="social-card">
+			<a href="https://bsky.app/profile/flyingfish1234.bsky.social" target="_blank"
+				class="social-card brand-bluesky">
 				<i class="si si-bluesky"></i>
 				<div class="social-info">
 					<span class="platform-name">Bluesky</span>
@@ -480,7 +587,7 @@
 				</div>
 			</a>
 
-			<a href="https://www.tiktok.com/@fish_1072297057" target="_blank" class="social-card">
+			<a href="https://www.tiktok.com/@fish_1072297057" target="_blank" class="social-card brand-tiktok">
 				<i class="si si-tiktok"></i>
 				<div class="social-info">
 					<span class="platform-name">TikTok</span>
@@ -488,7 +595,7 @@
 				</div>
 			</a>
 
-			<a href="https://youtube.com/@fish-lhz" target="_blank" class="social-card">
+			<a href="https://youtube.com/@fish-lhz" target="_blank" class="social-card brand-youtube">
 				<i class="si si-youtube"></i>
 				<div class="social-info">
 					<span class="platform-name">YouTube</span>
@@ -496,7 +603,7 @@
 				</div>
 			</a>
 
-			<a href="https://www.threads.com/@flying.fish.0620" target="_blank" class="social-card">
+			<a href="https://www.threads.com/@flying.fish.0620" target="_blank" class="social-card brand-threads">
 				<i class="si si-threads"></i>
 				<div class="social-info">
 					<span class="platform-name">Threads</span>
@@ -504,7 +611,7 @@
 				</div>
 			</a>
 
-			<a href="https://www.instagram.com/flying.fish.0620" target="_blank" class="social-card">
+			<a href="https://www.instagram.com/flying.fish.0620" target="_blank" class="social-card brand-instagram">
 				<i class="si si-instagram"></i>
 				<div class="social-info">
 					<span class="platform-name">Instagram</span>
@@ -512,7 +619,7 @@
 				</div>
 			</a>
 
-			<a href="https://www.facebook.com/share/1BrdoQDbRu/" target="_blank" class="social-card">
+			<a href="https://www.facebook.com/share/1BrdoQDbRu/" target="_blank" class="social-card brand-facebook">
 				<i class="si si-facebook"></i>
 				<div class="social-info">
 					<span class="platform-name">Facebook</span>
@@ -520,7 +627,8 @@
 				</div>
 			</a>
 
-			<a href="https://www.kuaishou.com/profile/3xg3zpywa996qf2" target="_blank" class="social-card">
+			<a href="https://www.kuaishou.com/profile/3xg3zpywa996qf2" target="_blank"
+				class="social-card brand-kuaishou">
 				<i class="si si-kuaishou"></i>
 				<div class="social-info">
 					<span class="platform-name" data-i18n="kuaishou">快手</span>
@@ -529,7 +637,7 @@
 			</a>
 
 			<a href="https://www.xiaohongshu.com/user/profile/6858e3f90000000007030882" target="_blank"
-				class="social-card">
+				class="social-card brand-xiaohongshu">
 				<i class="si si-xiaohongshu"></i>
 				<div class="social-info">
 					<span class="platform-name" data-i18n="xhs">小红书</span>
@@ -538,7 +646,7 @@
 			</a>
 
 			<a href="https://www.douyin.com/user/MS4wLjABAAAAxPUOfEJhpSWc8OfsRyvtGynR1nDcXpcS7rn4NayOYSvMdVYcKq_tqF0t_16oRbmk"
-				target="_blank" class="social-card">
+				target="_blank" class="social-card brand-douyin">
 				<i class="si si-tiktok"></i>
 				<div class="social-info">
 					<span class="platform-name" data-i18n="douyin">抖音</span>
@@ -546,7 +654,7 @@
 				</div>
 			</a>
 
-			<a href="https://space.bilibili.com/1640492556" target="_blank" class="social-card">
+			<a href="https://space.bilibili.com/1640492556" target="_blank" class="social-card brand-bilibili">
 				<i class="si si-bilibili"></i>
 				<div class="social-info">
 					<span class="platform-name">Bilibili</span>
@@ -554,7 +662,8 @@
 				</div>
 			</a>
 
-			<a href="https://live.kuaishou.com/profile/3xg3zpywa996qf2" target="_blank" class="social-card">
+			<a href="https://live.kuaishou.com/profile/3xg3zpywa996qf2" target="_blank"
+				class="social-card brand-kuaishou">
 				<i class="si si-kuaishou"></i>
 				<div class="social-info">
 					<span class="platform-name" data-i18n="ksLive">快手直播</span>
