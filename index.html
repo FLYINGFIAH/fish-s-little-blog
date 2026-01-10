@@ -202,6 +202,7 @@
 			box-shadow: var(--md-elevation-1);
 			transition: all 0.3s ease;
 			text-decoration: none;
+			align-self: center;
 		}
 
 		.btn-booking:hover {
@@ -512,11 +513,11 @@
 			<div class="headline-wrapper">
 				<div class="headline-group">
 					<div class="headline-small" data-i18n="role">高級擺爛攝影師</div>
-					<a href="#contact" class="btn-booking">
-						<span data-i18n="booking">👇 點我約拍!</span>
-					</a>
 				</div>
 			</div>
+			<a href="#contact" class="btn-booking">
+				<span data-i18n="booking">👇 點我約拍!</span>
+			</a>
 		</header>
 
 		<div class="content-staggered">
@@ -718,7 +719,8 @@
 
 		function applyLanguage() {
 			let userLang = navigator.language || navigator.userLanguage;
-			let targetLang = (userLang.toLowerCase().includes('cn') || userLang.toLowerCase().includes('sg')) ? 'zh-CN' : 'zh-TW';
+			// let targetLang = (userLang.toLowerCase().includes('cn') || userLang.toLowerCase().includes('sg')) ? 'zh-CN' : 'zh-TW';
+			let targetLang = (userLang.toLowerCase().includes('cn') || userLang.toLowerCase().includes('sg')) ? 'zh-TW' : 'zh-TW';
 
 			const texts = translations[targetLang];
 			document.querySelectorAll('[data-i18n]').forEach(el => {
